@@ -1,0 +1,197 @@
+{% extends  "./base.html" %}
+{% load static %}
+
+{% block title %}
+    Eterna Primavera - Inicio
+{% endblock %}
+
+{% block body %}
+
+    <!-- Sección de Inicio -->
+    <section id="seccion_inicio">
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> <!-- Sección inicial inicio -->
+                <div class="col-sm-4 text-center"> <!-- Logo -->
+                    <img src="{% static 'css/images/LOGO.png' %}" class="w-100 d-none d-sm-block" id="imageIni" alt="">
+                    <img src="{% static 'css/images/LOGO2.png' %}" class="w-50 d-sm-none" id="imageIni" alt="">
+                </div>
+                <div class="col-sm-8 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Datos de DentEuler-->
+                        <div class="card-body">
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>Ubícanos en:</strong>
+                            </h5>
+                            <p class="lead" style="color: white;">
+                                <i class="fa-solid fa-location-dot fa-lg" style="color: white;"></i>
+                                9ª avenida 7-35 zona 3, Cobán, Alta Verapaz
+                            </p>
+                            <br>
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>Contacta con nosotros:</strong>
+                            </h5>
+                            <p class="lead" style="color: white;">
+                                <i class="fa-solid fa-phone fa-lg" style="color: white;"></i>
+                                (+502) 1010-1010
+                                <br>
+                                <i class="fa-brands fa-whatsapp fa-xl" style="color: white;"></i>
+                                (+502) 2020-2020
+                            </p>
+                            <br>
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>Síguenos en nuestras redes sociales:</strong> 
+                            </h5>
+                            <p class="lead" style="color: white;">
+                                <a href="https://pin.it/1MjO0us" target="_blank" class="text-decoration-none">
+                                    <i class="fa-brands fa-instagram ico_dent" style="color: white;"></i>
+                                </a>
+                                <a href="https://pin.it/1MjO0us" target="_blank" class="text-decoration-none">
+                                    <i class="fa-brands fa-facebook ico_dent" style="color: white;"></i>
+                                </a>
+                            </p>
+                        </div>
+                    </div> 
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contenido de Inicio -->
+
+    <section class="p-3 mt-5 mb-5"> <!-- Cards con los tres temas -->
+        <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-sm-8">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                Importancia del Cuidado de Nuestra Salud
+                            </h1>
+                            <hr style="color: #069fa7; width:90%; margin: auto;">
+                            <p class="text-center lead mt-3">
+                                Realizarse chequeos médicos cada año es muy importante ya que, además de comprobar tu estado de salud, también te permite detectar enfermedades que posiblemente no presenten síntomas y no sean fáciles de percibir.
+                                <br><br>
+                                Tu edad, antecedentes familiares y el estilo de vida afectarán la frecuencia con la que necesitas realizarte un chequeo. No esperes hasta tener algún síntoma, es importante acostumbrarse a cuidar de uno mismo acudiendo a chequeos regulares.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4"> <!-- Texto y primer tratamiento -->
+                    <div class="card border-0 h-100 cardHorario2">
+                        <div class="p-5">
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, sapiente hic molestias optio sequi sint at quam inventore fuga similique.</strong>
+                            </h5>
+                            <h5 class="text-uppercase lead mt-3" style="color: white;">
+                                <strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vero, reiciendis neque! Atque sint repellat temporibus ea eius quos, similique provident!</strong>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                Conoce más acerca de:
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3">
+                <div class="col">
+                    <div class="card border-0 h-100 card-1">
+                        <img src="{% static 'css/images/llamar.jpg' %}" class="card-img-top w-75 rounded-circle d-none d-sm-block imgIniInfo" style="margin: 0 auto;" alt="...">
+                        <img src="{% static 'css/images/llamar.jpg' %}" class="card-img-top w-50 rounded-circle d-sm-none imgIniInfo" style="margin: 0 auto;" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                            <strong>como contactarnos</strong>
+                        </h5>
+                        <p class="card-text lead">
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusantium et esse, tempore odit ad facere blanditiis ex vel exercitationem nihil!
+                        </p>
+                    </div>
+                    <div class="d-grid gap-2 col-8 col-md-6 mx-auto mb-3" style="background-color: #FFAF00;">
+                        <a href="/contacto" class="btn lead" style="text-decoration: none; color: white;">Quiero saber más</a>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100 card-1">
+                        <img src="{% static 'css/images/manito.jpg' %}" class="card-img-top w-75 rounded-circle d-none d-sm-block imgIniInfo" style="margin: 0 auto;" alt="...">
+                        <img src="{% static 'css/images/manito.jpg' %}" class="card-img-top w-50 rounded-circle d-sm-none imgIniInfo" style="margin: 0 auto;" alt="...">
+                        <div class="card-body text-center">
+                            <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                <strong>nuestra historia</strong>
+                            </h5>
+                            <p class="card-text lead">
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Id voluptatibus corporis eius doloribus delectus eos illum minus repudiandae mollitia odio?
+                            </p>
+                        </div>
+                        <div class="d-grid gap-2 col-8 col-md-6 mx-auto mb-3" style="background-color: #FFAF00;">
+                            <a href="/historia" class="btn lead" style="text-decoration: none; color: white;">Quiero saber más</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100 card-1">
+                        <img src="{% static 'css/images/doctora.jpg' %}" class="card-img-top w-75 rounded-circle d-none d-sm-block imgIniInfo" style="margin: 0 auto;" alt="...">
+                        <img src="{% static 'css/images/doctora.jpg' %}" class="card-img-top w-50 rounded-circle d-sm-none imgIniInfo" style="margin: 0 auto;" alt="...">
+                    <div class="card-body text-center">
+                        <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                            <strong>nuestros médicos</strong>
+                        </h5>
+                        <p class="card-text lead">
+                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Labore, rerum accusamus sapiente sunt ut cum molestias at sint minima. Quas.
+                        </p>
+                    </div>
+                    <div class="d-grid gap-2 col-8 col-md-6 mx-auto mb-3" style="background-color: #FFAF00;">
+                        <a href="/medicos" class="btn lead" style="text-decoration: none; color: white;">Quiero saber más</a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="seccion_finalinicio"> <!-- Seccion final inicio -->
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> 
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+                <div class="col-sm-5 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Texto de contacto-->
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Tu salud</strong>
+                            </h1>
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                                <strong>en nuestras manos</strong>
+                            </h1>
+                            <hr style="color: #FFAF00; width:90%; margin: auto;">
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-sm-5 text-center"> <!-- Horario -->
+                    <div class="cardHorario p-5">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Horario de atención</strong>
+                        </h5>
+                        <hr style="color: white; width:80%; margin: auto;" class="mb-3">
+                        <p class="card-text lead" style="color: white;">
+                            Lunes a Viernes:
+                            <br>
+                            8:00 am - 12:00 pm y 14:00 pm - 17:00 pm
+                        </p>
+                        <p class="card-text lead" style="color: white;">
+                            Sábados: 
+                            <br>
+                            8:00 am - 12:00 pm
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends  "./base.html" %}
+{% load static %}
+
+{% block title %}
+    Eterna Primavera - Ingresar
+{% endblock %}
+
+{% block body %}
+
+    <!-- Contenido de Inicio -->
+
+    <section class="p-3 mt-5 mb-5"> <!-- Cards con los tres temas -->
+        <div class="container">
+
+            <div class="row mb-5">
+                <div class="col-sm-12">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                Iniciar Sesión
+                            </h1>
+                            <hr style="color: #069fa7; width:90%; margin: auto;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12"> <!-- Texto y primer tratamiento -->
+                    <div class="card border-0 h-100 cardHorario2">
+                        <div class="p-5">
+                            <form action="/login/" method="POST">{% csrf_token %}
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="username" class="form-label text-uppercase lead">Usuario:</label>
+                                        <input type="text" class="form-control" id="username"  name="username" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="mb-3">
+                                        <label for="password" class="form-label text-uppercase lead">Contraseña:</label>
+                                        <input type="password" class="form-control" id="password"  name="password" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 justify-content-center align-items-center">
+                                    <div class="form-text">{{error}}</div>
+                                    <br>
+                                </div>
+                                <div class="col-12">
+                                    <button class="btn btn-success" type="submit">Ingresar</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

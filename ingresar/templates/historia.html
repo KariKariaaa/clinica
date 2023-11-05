@@ -1,0 +1,223 @@
+{% extends  "./base.html" %}
+{% load static %}
+
+{% block title %}
+    Eterna Primavera - Historia
+{% endblock %}
+
+{% block body %}
+
+    <section id="seccion_nosotros">
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> <!-- Seccion tratamientos -->
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+                <div class="col-sm-5 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Eslogan-->
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Tu salud</strong>
+                            </h1>
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                                <strong>en nuestras manos</strong>
+                            </h1>
+                            <hr style="color: #FFAF00; width:90%; margin: auto;">
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-sm-5 text-center"> <!-- Texto -->
+                    <div class="cardHorario p-5">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Conoce más acerca de</strong>
+                        </h5>
+                        <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                            <strong>la eterna Primavera</strong> 
+                        </h1>
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>y nuestra</strong>
+                        </h5>
+                        <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                            <strong>historia</strong> 
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3 mt-3">
+        <div class="container">
+
+            
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                ¿Quiénes somos?
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                <div class="col">
+                    <div class="card border-0 h-100 bg-transparent">
+                        <div class="card-body">
+                            <img src="{% static 'css/images/manos.jpg' %}" class="card-img-top w-100 rounded-circle" style="margin: 0 auto;" alt="...">
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <p class="card-tittle fs-4 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Misión</strong>
+                            </p>
+                            <hr style="color: #069fa7; width:90%; margin: auto;">
+                            <p class="card-text text-center mt-3 lead">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ad, eveniet exercitationem soluta cumque iusto fugit blanditiis tempora tenetur, odit modi ipsa commodi iure voluptate sit dolorum illum ab labore aperiam aspernatur enim sapiente unde. Temporibus nam, a, dolor mollitia similique fugit quasi aliquid vero, velit quas excepturi voluptatibus repellat?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <p class="card-tittle fs-4 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Visión</strong>
+                            </p>
+                            <hr style="color: #069fa7; width:90%; margin: auto;">
+                            <p class="card-text text-center mt-3 lead">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, unde. Nesciunt minima ea possimus amet? Quae harum earum, consequatur quaerat ratione cupiditate aperiam nostrum quam libero corrupti cum inventore ullam dolorem fuga placeat animi praesentium dolorum voluptas possimus recusandae iure vero commodi officia aliquam. Quibusdam, provident harum! Delectus, nihil dolores?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <p class="fs-4 text-uppercase lead text-center" style="color: #069fa7;">
+                <strong>Valores</strong>
+            </p>
+            <hr style="color: #069fa7; width:35%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-people-roof fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Respeto</strong>
+                            </p>
+                            <p class="text-center lead">
+                                En DentEuler se aplica este valor respetando la dignidad del paciente mediante la atención de sus necesidades odontológicas de una manera cordial.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-shield-heart fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Ética</strong>
+                            </p>
+                            <p class="text-center lead">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt, incidunt beatae? Officia quod natus molestias enim nostrum quos quae quidem?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-award fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Excelencia</strong>
+                            </p>
+                            <p class="text-center lead">
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nostrum at officiis dolores et blanditiis quisquam voluptatem aperiam exercitationem itaque magnam!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-person-rays fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Innovación</strong>
+                            </p>
+                            <p class="text-center lead">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, laudantium? Et aut eveniet perspiciatis reiciendis quisquam saepe vel, incidunt dolorem!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-handshake-simple fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Confianza</strong>
+                            </p>
+                            <p class="text-center lead">
+                                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fugit cum eos ratione quis dolores excepturi et quod esse quo deserunt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-hand-point-up fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Escucha</strong>
+                            </p>
+                            <p class="text-center lead">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Culpa labore atque fugit eveniet consequatur assumenda dignissimos a consectetur eum! Recusandae.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3 mt-3"> <!-- Cards con los tres temas -->
+        <div class="container">   
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                NUESTRA HISTORIA
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <div class="row row-cols-1 g-4">
+                <div class="col">
+                    <div class="card border-0 h-100">
+                        <div class="card-body">
+                            <p class="card-text text-center mt-3 lead">
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum ad, eveniet exercitationem soluta cumque iusto fugit blanditiis tempora tenetur, odit modi ipsa commodi iure voluptate sit dolorum illum ab labore aperiam aspernatur enim sapiente unde. Temporibus nam, a, dolor mollitia similique fugit quasi aliquid vero, velit quas excepturi voluptatibus repellat?
+                                <br><br>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Dolore ipsa voluptatibus ad fugiat asperiores quisquam iste animi inventore a perspiciatis itaque molestias tenetur eaque aspernatur ea qui illum, et odit vitae tempore rerum ab eum repellendus amet? Aspernatur accusantium, laboriosam obcaecati rem earum molestias, perferendis corporis deleniti fugit fuga eos, vel eligendi natus sint quibusdam temporibus iure officia consequatur? Atque aliquid iste nihil fugit qui consequuntur soluta? Eveniet nulla adipisci esse temporibus impedit tenetur, laborum obcaecati aliquid, ipsam nisi magni dolor iusto omnis? Minus suscipit similique dolorem illo velit nobis, natus modi enim earum assumenda voluptate corporis illum ad officia
+                                <br><br>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi vero nam error voluptates, nostrum optio doloremque provident corrupti quis inventore maiores? Quis inventore molestias, ea, asperiores illo accusantium eveniet assumenda at ducimus in magni libero nobis nemo ullam eligendi. Optio molestiae quo, incidunt consectetur cum vero officia porro saepe ducimus
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

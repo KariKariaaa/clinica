@@ -1,0 +1,125 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Citas
+{% endblock %}
+
+{% block body %}
+
+    <section class="p-3 mt-3"> <!-- APARTADO DE CITAS -->
+        <div class="container">   
+            <div class="text-center">
+                <a class="btn btn-danger" href="/formulario" role="button"><i class="fas fa-arrow-left" style="color: white;"></i></a>
+            </div>
+
+            <br><br>
+
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                CITAS DE: {{datospaciente.nombrepaciente}}
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalingresarcita"><i class="fas fa-plus" style="color: white;"></i></button>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for c in listacitas %}
+                    <div class="col">
+                        <div class="card border-0 h-100 card-1">
+                            <div class="card-body text-center">
+                                <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                    <strong>Cita: {{c.fechacita}}</strong>
+                                </h5>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="lead">
+                                        <strong>Razón: </strong>{{c.razon}}
+                                    </li>
+                                    <li class="lead">
+                                        <strong>Diagnóstico: </strong> {{c.diagnostico}}
+                                    </li>
+                                    <li class="lead">
+                                        <strong>Receta: </strong>{{c.receta}}
+                                    </li>
+                                    <li class="lead">
+                                        <strong>Médico Tratante: </strong>{{c.medico}}, Col. {{c.medico.colegiado}}
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="edicionCita/{{datospaciente.dpi}}/{{c.id}}" class="btn btn-warning"><i class="fas fa-edit" style="color: white;"></i></a>
+                                        <a href="eliminarCita/{{datospaciente.dpi}}/{{c.id}}" class="btn btn-danger btnEliminarCita"><i class="fas fa-trash" style="color: white;"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA INGRESAR UNA CITA -->
+    <div tabindex="-1" aria-labelledby="modalingresarcita" aria-hidden="true" class="modal fade" id="modalingresarcita">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modalingresarcita p-5">
+              <div class="modal-header">
+                <h5 class="modal-title text-uppercase lead" style="color: #069fa7;">
+                    <strong>Formulario para Ingreso de Cita "La Eterna Primavera"</strong>
+                  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="needs-validation" action="/registrarCita/" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="medico_cita" class="form-label text-uppercase lead">Médico Tratante:</label>
+                                <input type="text" class="form-control" id="medico_cita" placeholder="Ingrese el No. de Colegiado"  name="medico_cita" pattern="[0-9]{9}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="paciente_cita" class="form-label text-uppercase lead">Paciente:</label>
+                                <input type="text" class="form-control" id="paciente_cita" name="paciente_cita" pattern="[0-9]{13}" value="{{datospaciente.dpi}}" readonly required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="fecha_cita" class="form-label text-uppercase lead">Fecha de la Cita:</label>
+                                <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="razon_cita" class="form-label text-uppercase lead">Razón de la Visita:</label>
+                                <textarea type="text" class="form-control" id="razon_cita" rows="3" name="razon_cita"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="diagnostico_cita" class="form-label text-uppercase lead">Diagnóstico:</label>
+                                <textarea type="text" class="form-control" id="diagnostico_cita" rows="3" name="diagnostico_cita"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="receta_cita" class="form-label text-uppercase lead">Receta:</label>
+                                <textarea type="text" class="form-control" id="receta_cita" rows="3" name="receta_cita"></textarea>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                          </div>
+
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

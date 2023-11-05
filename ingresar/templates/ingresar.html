@@ -1,0 +1,289 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Ingresar
+{% endblock %}
+
+{% block body %}
+
+    
+
+    <section id="seccion_ingreso">
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> <!-- Seccion tratamientos -->
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+                <div class="col-sm-5 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Eslogan-->
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Clínica Médica</strong>
+                            </h1>
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                                <strong>La Eterna Primavera</strong>
+                            </h1>
+                            <hr style="color: #FFAF00; width:90%; margin: auto;">
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-sm-5 text-center"> <!-- Texto -->
+                    <div class="cardHorario p-5">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Ingresar</strong>
+                        </h5>
+                        <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                            <strong>INFORMACIÓN</strong> 
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3 mt-3"> <!-- APARTADO DE MÉDICOS -->
+        <div class="container">   
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                MÉDICOS
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalingresarmedico"><i class="fas fa-plus" style="color: white;"></i></button>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for c in listamedicos %}
+                    <div class="col">
+                        <div class="card border-0 h-100 card-1">
+                            <div class="card-body text-center">
+                                <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                    <strong>{{c.especialidad}}</strong>
+                                </h5>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="lead">
+                                        {{c.universidad}}
+                                    </li>
+                                    <li class="lead">
+                                        Col. {{c.colegiado}}
+                                    </li>
+                                    <li class="lead">
+                                        {{c.nombre}}
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="edicionMedico/{{c.colegiado}}" class="btn btn-warning"><i class="fas fa-edit" style="color: white;"></i></a>
+                                        <a href="eliminarMedico/{{c.colegiado}}" class="btn btn-danger btnEliminarMedico"><i class="fas fa-trash" style="color: white;"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA INGRESAR UN MÉDICO -->
+    <div tabindex="-1" aria-labelledby="modalingresarmedico" aria-hidden="true" class="modal fade" id="modalingresarmedico">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modalingresarmedico p-5">
+              <div class="modal-header">
+                <h5 class="modal-title text-uppercase lead" style="color: #069fa7;">
+                    <strong>Formulario para Ingreso de Médicos "La Eterna Primavera"</strong>
+                  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="needs-validation" action="/registrarMedico/" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="nombre_medico" class="form-label text-uppercase lead">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombre_medico"  name="nombre_medico" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="universidad_medico" class="form-label text-uppercase lead">Universidad:</label>
+                                <input type="text" class="form-control" id="universidad_medico" name="universidad_medico" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mb-3">
+                                <label for="colegiado_medico" class="form-label text-uppercase lead">No. Colegiado:</label>
+                                <input type="text" class="form-control" id="colegiado_medico" name="colegiado_medico" pattern="[0-9]{9}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="especialidad_medico" class="form-label text-uppercase lead">Especialidad:</label>
+                                <input type="text" class="form-control" id="especialidad_medico" name="especialidad_medico" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" required>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                          </div>
+
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="p-3 mt-3"> <!-- APARTADO DE PACIENTES -->
+        <div class="container">   
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                PACIENTES
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="text-center">
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalingresarpaciente"><i class="fas fa-plus" style="color: white;"></i></button>
+            </div>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for c in listapacientes %}
+                    <div class="col">
+                        <div class="card border-0 h-100 card-1">
+                            <div class="card-body text-center">
+                                <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                    <strong>{{c.nombrepaciente}}</strong>
+                                </h5>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="lead">
+                                        DPI: {{c.dpi}}
+                                    </li>
+                                    <li class="lead">
+                                        Fecha de Nacimiento: {{c.fechanacimiento}}
+                                    </li>
+                                    <li class="lead">
+                                        Tel: {{c.telefono}}
+                                    </li>
+                                    <li class="lead">
+                                        Dirección: {{c.direccion}}
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="edicionPaciente/{{c.dpi}}" class="btn btn-warning"><i class="fas fa-edit" style="color: white;"></i></a>
+                                        <a href="eliminarPaciente/{{c.dpi}}" class="btn btn-danger btnEliminarPaciente"><i class="fas fa-trash" style="color: white;"></i></a>
+                                    </li>
+                                    <br><br>
+                                    <li>
+                                        <a href="citas/{{c.dpi}}" class="btn" style="background-color: #069fa7; color: white;">Registro de Citas</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL PARA INGRESAR UN PACIENTE -->
+    <div tabindex="-1" aria-labelledby="modalingresarpaciente" aria-hidden="true" class="modal fade" id="modalingresarpaciente">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content modalingresarpaciente p-5">
+              <div class="modal-header">
+                <h5 class="modal-title text-uppercase lead" style="color: #069fa7;">
+                    <strong>Formulario para Ingreso de Pacientes "La Eterna Primavera"</strong>
+                  </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <form class="needs-validation" action="/registrarPaciente/" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="nombre_paciente" class="form-label text-uppercase lead">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombre_paciente"  name="nombre_paciente" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="dpi_paciente" class="form-label text-uppercase lead">DPI:</label>
+                                <input type="text" class="form-control" id="dpi_paciente" name="dpi_paciente" pattern="[0-9]{13}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="fechanacimiento_paciente" class="form-label text-uppercase lead">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fechanacimiento_paciente" name="fechanacimiento_paciente" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="telefono_paciente" class="form-label text-uppercase lead">Teléfono:</label>
+                                <input type="text" class="form-control" id="telefono_paciente" name="telefono_paciente" pattern="[0-9]{8}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="direccion_paciente" class="form-label text-uppercase lead">Dirección:</label>
+                                <input type="text" class="form-control" id="direccion_paciente"  name="direccion_paciente" pattern=".{1,100}" required>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                          </div>
+
+                    </div>
+                </form>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="p-3 mt-3"> <!-- APARTADO DE MENSAJES -->
+        <div class="container">   
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                MENSAJES
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for c in listamensajes %}
+                    <div class="col">
+                        <div class="card border-0 h-100 card-1">
+                            <div class="card-body text-center">
+                                <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                    <strong>#{{c.id}} {{c.nombremensaje}}</strong>
+                                </h5>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="lead">
+                                        {{c.telefonomensaje}}
+                                    </li>
+                                    <li class="lead">
+                                        {{c.correomensaje}}
+                                    </li>
+                                    <li class="lead">
+                                        <strong>Mensaje: </strong>{{c.mensajemensaje}}
+                                    </li>
+                                    <br>
+                                    <li>
+                                        <a href="eliminarMensaje/{{c.id}}" class="btn btn-danger btnEliminarMensaje"><i class="fas fa-trash" style="color: white;"></i></a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

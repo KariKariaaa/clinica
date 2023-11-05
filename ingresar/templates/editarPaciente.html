@@ -1,0 +1,66 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Editar
+{% endblock %}   
+
+{% block body %}
+   <!-- MODAL PARA EDITAR UN MÉDICO -->
+
+   <section class="p-3 mt-3">
+        <div class="container">
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                Editar Paciente
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="p-5">
+                <form class="needs-validation" action="/editarPaciente/" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="nombre_paciente" class="form-label text-uppercase lead">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombre_paciente"  name="nombre_paciente" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" value="{{pacientes.nombrepaciente}}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="dpi_paciente" class="form-label text-uppercase lead">DPI:</label>
+                                <input type="text" class="form-control" id="dpi_paciente" name="dpi_paciente" pattern="[0-9]{13}" value="{{pacientes.dpi}}" readonly required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="fechanacimiento_paciente" class="form-label text-uppercase lead">Fecha de Nacimiento:</label>
+                                <input type="date" class="form-control" id="fechanacimiento_paciente" name="fechanacimiento_paciente" required>
+                                <div class="form-text">Fecha Anterior: {{pacientes.fechanacimiento}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="telefono_paciente" class="form-label text-uppercase lead">Teléfono:</label>
+                                <input type="text" class="form-control" id="telefono_paciente" name="telefono_paciente" pattern="[0-9]{8}" value="{{pacientes.telefono}}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="direccion_paciente" class="form-label text-uppercase lead">Dirección:</label>
+                                <input type="text" class="form-control" id="direccion_paciente"  name="direccion_paciente" pattern=".{1,100}" value="{{pacientes.direccion}}" required>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <a class="btn btn-danger" href="/formulario" role="button"><i class="fas fa-arrow-left" style="color: white;"></i></a>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+   </section>
+{% endblock %}  

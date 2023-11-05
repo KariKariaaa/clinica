@@ -1,0 +1,190 @@
+body{
+    background-image: url(./images/fondo.svg);
+    background-attachment: fixed;
+}
+
+/* Estilos del Navbar */
+
+.navbar .navbar-nav .nav-link:hover{
+    background-color: #FFAF00;
+}
+
+.navbar .navbar-nav .nav-link{
+    color: white;
+    padding: 1em;
+}
+
+/* Estilos de la sección de Inicio (el rectangulito) */
+
+#seccion_inicio{
+    background: url(./images/fondoprincipal.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.cardInicio{
+    background: none;
+    border: 0;
+}
+
+.ico_dent{
+    font-size: 1.7rem;
+    padding-left: .3em;
+    padding-right: .3em;
+}
+
+/* Estilos de la sección de abajo inicio */
+
+#seccion_finalinicio{
+    background: linear-gradient(0deg, rgba(255,255,255,0.49933476808692223) 0%, rgba(255,255,255,0.49933476808692223) 20%), url(./images/fondoInicio.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.cardHorario{
+    background: linear-gradient(0deg, rgba(6,159,167,1) 0%, rgba(6,159,167,0.7038165608040091) 0%);
+}
+
+.cardHorario2{
+    background: linear-gradient(0deg, rgba(255,175,0,1) 0%, rgba(255,175,0,0.5243347338935574) 0%);;
+}
+
+/* Estilos de la sección info Inicio */
+
+.txtcard-ini{
+    color: #069fa7;
+}
+
+.imgIniInfo{
+    padding: 2em;
+}
+
+.card-1 {
+    background: white;
+    transition: all 0.25s;
+}
+
+.card-1:hover {
+    background: linear-gradient(0deg, rgba(6,159,167,1) 0%, rgba(6,159,167,0.7038165608040091) 0%);
+}
+
+.card-1:hover .txtcard-ini {
+    color: white;
+}
+
+/* Estilos de la página tratamientos */
+
+#seccion_tratamientos{
+    background: linear-gradient(0deg, rgba(255,255,255,0.49933476808692223) 0%, rgba(255,255,255,0.49933476808692223) 20%), url(./images/contacto.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+.dienteInterior{
+    color: #069fa7;
+}
+
+.dienteRedondo{
+    background-color: white;
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border-color: #069fa7;
+}
+
+.dienteRedondo:hover .dienteInterior{
+    color: #FFAF00;
+}
+
+/* Estilos pagina nosotros */
+#seccion_nosotros{
+    background: linear-gradient(0deg, rgba(255,255,255,0.49933476808692223) 0%, rgba(255,255,255,0.49933476808692223) 20%), url(./images/historia.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos pagina médicos */
+#seccion_medicos{
+    background: linear-gradient(0deg, rgba(255,255,255,0.49933476808692223) 0%, rgba(255,255,255,0.49933476808692223) 20%), url(./images/medicos.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos pagina médicos */
+#seccion_ingreso{
+    background: linear-gradient(0deg, rgba(255,255,255,0.49933476808692223) 0%, rgba(255,255,255,0.49933476808692223) 20%), url(./images/medicos.jpg);
+    min-height: 80vh;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+}
+
+/* Estilos dependiendo del Tamaño de la pantalla */
+
+@media screen and (min-width:577px) {
+    .navbar{
+        padding: 0;
+    }
+}
+
+@media screen and (max-width:576px) {
+    /* Estilos del Navbar */
+    .navbar .navbar-nav .nav-link{
+        color: white;
+    }
+    .navbar-brand{
+        padding-left: .7em;
+    }   
+    .navbar-nav{
+        padding-top: .5em;
+    } 
+    /* Estilos de la sección de Inicio (el rectangulito) */
+    #seccion_inicio{
+        min-height: 50vh;
+    }
+    #imageIni{
+        padding-left: 2em;
+        padding-right: 2em;
+        padding-top: 4em;
+    }
+    .cardIni{
+        padding-top: 4em;
+        padding-bottom: 1em;
+    }
+    /* Estilos de la sección Horario */
+    .cardHorario{
+        margin: 1em;
+    }
+
+    /* Estilos de la sección info Inicio */
+    .imgIniInfo{
+        padding: 1em;
+    }
+    
+
+}
+
+

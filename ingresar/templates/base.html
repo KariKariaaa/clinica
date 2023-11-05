@@ -1,0 +1,172 @@
+{% load static %}
+
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <title>{% block title %} {% endblock %}</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- Bootstrap CSS v5.2.1 -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="{% static 'css/estilos.css' %}"/>
+
+        <!-- Iconos de Font-Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    </head>
+
+    <body>
+
+        <!-- Navabar/Menú -->
+        <header>
+            <nav class="navbar navbar-expand-lg" style="background-color: #069fa7;">
+                <div class="container-fluid">
+                    <a class="navbar-brand mx-auto" href="/">
+                        <img src="{% static 'css/images/LOGO2.png' %}" class="d-inline-block d-none d-sm-block" width="80px" alt="">
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+            
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                            <li class="nav-item lead">
+                                <a class="nav-link active" aria-current="page" href="/"><strong>INICIO</strong></a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/formulario"><strong>FORMULARIOS</strong></a>
+                            </li>
+                            {% endif %}
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/contacto"><strong>CONTACTO</strong></a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/historia"><strong>HISTORIA</strong></a>
+                            </li>
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/medicos"><strong>NUESTROS MÉDICOS</strong></a>
+                            </li>
+                            {% if user.is_authenticated %}
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/logout"><strong>CERRAR SESIÓN</strong></a>
+                            </li>
+                            {% else %}
+                            <li class="nav-item lead">
+                                <a class="nav-link" href="/login"><strong>INICIAR SESIÓN</strong></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+                        
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <!-- Contenido -->
+        <main>
+            {% block body %}
+            {% endblock %}
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <!-- Footer -->
+            <section class="text-center" style="background-color: #069fa7;">
+
+                <div class="container p-3">
+                <hr style="color: white; width:75%; margin: auto;" class="d-sm-none mb-3">
+            
+                <!-- Section: Links -->
+                <section class="container">
+                    <div class="row justify-content-center align-items-center">
+                    <div class="col-sm-3 text-center">
+                        <div class="card border-0 h-100 bg-transparent">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Ubícanos en:</strong>
+                        </h5>
+                        <p class="lead" style="color: white;">
+                            <i class="fa-solid fa-location-dot fa-lg" style="color: white;"></i>
+                            9ª avenida 7-35 zona 3, 
+                            <br>
+                            Cobán, Alta Verapaz
+                        </p>
+                        </div>
+                    </div>
+                    <hr style="color: white; width:75%; margin: auto;" class="d-sm-none mb-3">
+                    <div class="col-sm-3 text-center">
+                        <div class="card border-0 h-100 bg-transparent">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Contacta con nosotros:</strong>
+                        </h5>
+                        <p class="lead" style="color: white;">
+                            <i class="fa-solid fa-phone fa-lg" style="color: white;"></i>
+                            (+502) 1010-1010
+                            <br>
+                            <i class="fa-brands fa-whatsapp fa-xl" style="color: white;"></i>
+                            (+502) 2020-2020
+                        </p>
+                        </div>
+                    </div>
+                    <hr style="color: white; width:75%; margin: auto;" class="d-sm-none mb-3">
+                    <div class="col-sm-3 text-center">
+                        <div class="card border-0 h-100 bg-transparent">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Síguenos en nuestras redes sociales:</strong> 
+                        </h5>
+                        <p class="lead" style="color: white;">
+                            <a href="https://pin.it/1MjO0us" target="_blank" class="text-decoration-none">
+                                <i class="fa-brands fa-instagram ico_dent" style="color: white;"></i>
+                            </a> 
+                            <a href="https://pin.it/1MjO0us" target="_blank" class="text-decoration-none">
+                                <i class="fa-brands fa-facebook ico_dent" style="color: white;"></i>
+                            </a>
+                        </p>
+                        </div>
+                    </div>
+                    <hr style="color: white; width:75%; margin: auto;" class="d-sm-none mb-3">
+                    <div class="col-sm-3 text-center">
+                        <div class="card border-0 h-100 bg-transparent d-none d-sm-block">
+                        <img src="{% static 'css/images/LOGO2.png' %}" class="card-img-top w-75 rounded-circle" style="margin: 0 auto;" alt="...">
+                        </div>
+                        <div class="card border-0 h-100 bg-transparent d-sm-none">
+                        <img src="{% static 'css/images/LOGO2.png' %}" class="card-img-top w-50 rounded-circle" style="margin: 0 auto;" alt="...">
+                        </div>
+                    </div>
+                    </div>
+                </section>
+            
+                </div>
+            
+                <!-- Copyright -->
+                <div class="text-center p-3" style="background-color: #000" target>
+                <p class="lead" style="color: white;" >© 2023 Copyright 202145351, Powered By:
+                    <a style="color: white;" target="_blank" href="https://pin.it/1MjO0us">Karina</a>
+                </p>
+                </div>
+                <!-- Copyright -->
+            
+            </section>
+  <!-- Footer -->
+        </footer>
+
+    <!-- Bootstrap JavaScript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+            integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+        </script>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+            integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+        </script>
+
+    <!-- Js para los mensajitos -->
+        <script src="{% static 'js/mensajitos.js' %}"></script>
+    </body>
+
+</html>

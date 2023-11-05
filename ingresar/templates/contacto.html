@@ -1,0 +1,118 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Contacto
+{% endblock %}
+
+{% block body %}
+
+    <section id="seccion_tratamientos">
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> <!-- Seccion tratamientos -->
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+                <div class="col-sm-5 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Eslogan-->
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Tu salud</strong>
+                            </h1>
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                                <strong>en nuestras manos</strong>
+                            </h1>
+                            <hr style="color: #FFAF00; width:90%; margin: auto;">
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-sm-5 text-center"> <!-- Texto -->
+                    <div class="cardHorario p-5">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Conoce más acerca de como</strong>
+                        </h5>
+                        <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                            <strong>contactar</strong> 
+                        </h1>
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>con nosotros</strong>
+                        </h5>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3 mt-5 mb-5">
+        <div class="container">
+            <!-- Primera Parte -->
+            <div class="row mb-3">
+                <div class="col-sm-4 mb-3"> <!-- Texto y primer tratamiento -->
+                    <div class="card border-0 h-80 cardHorario2">
+                        <div class="p-5">
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>"Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat, itaque."</strong>
+                            </h5>
+                            <hr style="color: white; width:90%; margin: auto;">
+                            <h5 class="text-uppercase lead mt-3" style="color: white;">
+                                <strong>¿Lorem ipsum dolor sit?</strong>
+                            </h5>
+                            <h5 class="text-uppercase lead" style="color: white;">
+                                <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum voluptatem officia corrupti</strong>
+                            </h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-8">
+                    <div class="card border-0 h-80">
+                        <div class="card-body">
+                            <button class="dienteRedondo mt-3 mb-3" style="margin: auto;">
+                                <i class="fa-solid fa-clipboard-check fa-3x dienteInterior"></i>
+                            </button>
+                            <p class="card-tittle fs-4 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>¡Contacta con Nosotros enviándonos un Mensaje!</strong>
+                            </p>
+                            <hr style="color: #069fa7; width:90%; margin: auto;">
+                            <div class="p-5">
+                                <form class="needs-validation" action="/enviarMensaje/" method="POST" required>{% csrf_token %}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="nombre_mensaje" class="form-label text-uppercase lead">Nombre Completo:</label>
+                                                <input type="text" class="form-control" id="nombre_mensaje"  name="nombre_mensaje" pattern="[A-Za-z áéíóúÁÉÍÓÚ]{1,75}" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="telefono_mensaje" class="form-label text-uppercase lead">Teléfono:</label>
+                                                <input type="text" class="form-control" id="telefono_mensaje" name="telefono_mensaje" pattern="[0-9]{8}" value="{{pacientes.telefono}}" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="mb-3">
+                                                <label for="correo_mensaje" class="form-label text-uppercase lead">Correo Electrónico:</label>
+                                                <input type="email" class="form-control" id="correo_mensaje" name="correo_mensaje" pattern="[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-]([\.]?[a-zA-Z0-9!#$%&'*\/=?^_`\{\|\}~\+\-])+@[a-zA-Z0-9]([^@&%$\/\(\)=?¿!\.,:;]|\d)+[a-zA-Z0-9][\.][a-zA-Z]{2,4}([\.][a-zA-Z]{2})?" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <div class="mb-3">
+                                                <label for="mensaje_mensaje" class="form-label text-uppercase lead">Mensaje:</label>
+                                                <textarea type="text" class="form-control" id="mensaje_mensaje" rows="3" name="mensaje_mensaje" required></textarea>
+                                            </div>
+                                        </div>
+                                    
+                                        <div class="col-12">
+                                            <button class="btn btn-success" type="submit">Enviar</button>
+                                        </div>
+                
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

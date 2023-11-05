@@ -1,0 +1,83 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Médicos
+{% endblock %}
+
+{% block body %}
+
+    
+
+    <section id="seccion_ingreso">
+        <div class="container">
+            <div class="row justify-content-center align-items-center"> <!-- Seccion tratamientos -->
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+                <div class="col-sm-5 text-center cardIni">
+                    <div class="card cardInicio"> <!-- Eslogan-->
+                        <div class="card-body">
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                                <strong>Clínica Médica</strong>
+                            </h1>
+                            <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                                <strong>La Eterna Primavera</strong>
+                            </h1>
+                            <hr style="color: #FFAF00; width:90%; margin: auto;">
+                        </div>
+                    </div> 
+                </div>
+                <div class="col-sm-5 text-center"> <!-- Texto -->
+                    <div class="cardHorario p-5">
+                        <h5 class="text-uppercase lead" style="color: white;">
+                            <strong>Conoce a</strong>
+                        </h5>
+                        <h1 class="display-6 text-uppercase lead text-center" style="color: #FFAF00;">
+                            <strong>NUESTROS MÉDICOS</strong> 
+                        </h1>
+                    </div>
+                </div>
+                <div class="col-sm-1 text-center"> <!-- Vacío -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="p-3 mt-3"> <!-- APARTADO DE MÉDICOS -->
+        <div class="container">   
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                CONTAMOS CON PERSONAL ESPECIALIZADO
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="row row-cols-1 row-cols-md-3 g-4 mt-3 mb-3">
+                {% for c in listamedicos %}
+                    <div class="col">
+                        <div class="card border-0 h-100 card-1">
+                            <div class="card-body text-center">
+                                <h5 class="card-tittle text-uppercase lead txtcard-ini">
+                                    <strong>{{c.especialidad}}</strong>
+                                </h5>
+                                <ul class="list-unstyled mt-3">
+                                    <li class="lead">
+                                        {{c.universidad}}
+                                    </li>
+                                    <li class="lead">
+                                        Col. {{c.colegiado}}
+                                    </li>
+                                    <li class="lead">
+                                        {{c.nombre}}
+                                    </li>
+                                    <br>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

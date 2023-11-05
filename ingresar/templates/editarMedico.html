@@ -1,0 +1,59 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Editar
+{% endblock %}   
+
+{% block body %}
+   <!-- MODAL PARA EDITAR UN MÉDICO -->
+
+   <section class="p-3 mt-3">
+        <div class="container">
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                Editar Médico
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="p-5">
+                <form class="needs-validation" action="/editarMedico/" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="nombre_medico" class="form-label text-uppercase lead">Nombre Completo:</label>
+                                <input type="text" class="form-control" id="nombre_medico"  name="nombre_medico" pattern="[A-Za-z áéíóú]{1,75}" value="{{medico.nombre}}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="universidad_medico" class="form-label text-uppercase lead">Universidad:</label>
+                                <input type="text" class="form-control" id="universidad_medico" name="universidad_medico" pattern="[A-Za-z áéíóú]{1,75}" value="{{medico.universidad}}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="mb-3">
+                                <label for="colegiado_medico" class="form-label text-uppercase lead">No. Colegiado:</label>
+                                <input type="text" class="form-control" id="colegiado_medico" name="colegiado_medico" pattern="[0-9]{9}" value="{{medico.colegiado}}" readonly required>
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="mb-3">
+                                <label for="especialidad_medico" class="form-label text-uppercase lead">Especialidad:</label>
+                                <input type="text" class="form-control" id="especialidad_medico" name="especialidad_medico" pattern="[A-Za-z áéíóú]{1,75}" value="{{medico.especialidad}}" required>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <a class="btn btn-danger" href="/formulario" role="button"><i class="fas fa-arrow-left" style="color: white;"></i></a>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                        </div>
+            
+                    </div>
+                </form>
+            </div>
+
+        </div>
+   </section>
+{% endblock %}  

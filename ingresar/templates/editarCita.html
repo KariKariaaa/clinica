@@ -1,0 +1,74 @@
+{% extends  "./base.html" %}
+
+{% block title %}
+    Eterna Primavera - Editar
+{% endblock %}
+
+{% block body %}
+
+    <!-- MODAL PARA EDITAR UNA CITA -->
+
+    <section class="p-3 mt-3">
+        <div class="container">
+            <h1 class="display-6 text-uppercase lead text-center" style="color: #069fa7;">
+                Editar Cita 
+            </h1>
+            <hr style="color: #069fa7; width:50%; margin: auto;" class="d-none d-sm-block">
+            <hr style="color: #069fa7; width:90%; margin: auto;" class="d-sm-none">
+
+            <br><br>
+
+            <div class="p-5">
+                <form class="needs-validation" action="/editarCita/{{citas.id}}" method="POST" required>{% csrf_token %}
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="medico_cita" class="form-label text-uppercase lead">Médico Tratante:</label>
+                                <input type="text" class="form-control" id="medico_cita" placeholder="Ingrese el No. de Colegiado"  name="medico_cita" pattern="[0-9]{9}" value="{{citas.medico.colegiado}}" required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="paciente_cita" class="form-label text-uppercase lead">Paciente:</label>
+                                <input type="text" class="form-control" id="paciente_cita" name="paciente_cita" pattern="[0-9]{13}" value="{{dpi}}" readonly required>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="mb-3">
+                                <label for="fecha_cita" class="form-label text-uppercase lead">Fecha de la Cita:</label>
+                                <input type="date" class="form-control" id="fecha_cita" name="fecha_cita" required>
+                                <div class="form-text">Fecha Anterior: {{citas.fechacita}}</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="razon_cita" class="form-label text-uppercase lead">Razón de la Visita:</label>
+                                <textarea type="text" class="form-control" id="razon_cita" rows="3" name="razon_cita">{{citas.razon}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="diagnostico_cita" class="form-label text-uppercase lead">Diagnóstico:</label>
+                                <textarea type="text" class="form-control" id="diagnostico_cita" rows="3" name="diagnostico_cita">{{citas.diagnostico}}</textarea>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="mb-3">
+                                <label for="receta_cita" class="form-label text-uppercase lead">Receta:</label>
+                                <textarea type="text" class="form-control" id="receta_cita" rows="3" name="receta_cita">{{citas.receta}}</textarea>
+                            </div>
+                        </div>
+                    
+                        <div class="col-12">
+                            <a class="btn btn-danger" href="/formulario/citas/{{dpi}}" role="button"><i class="fas fa-arrow-left" style="color: white;"></i></a>
+                            <button class="btn btn-success" type="submit">Guardar</button>
+                          </div>
+
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+{% endblock %}
