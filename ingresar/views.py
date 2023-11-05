@@ -5,6 +5,31 @@ from django.contrib.auth import authenticate, login, logout
 from .models import medicos, paciente, cita, mensaje
 
 # Create your views here.
+def registroSecreto(request):
+    if request.method == 'GET':
+        return redirect('registroSecreto')
+    else:
+        if request.POST['password'] == request.POST['password2']:
+            try:
+                user = User.objects.create_user(
+                    username = request.POST['username'],
+                    password = request.POST['password']
+                )
+                user.save()
+                return render(request, 'registroSecreto', {
+                    'error': 'Usuario Creado'
+                    })
+            except:
+                return render(request, 'registroSecreto', {
+                    'error': 'El Usuario Ya Existe'
+                    })
+
+        else:
+            return render(request, 'registroSecreto', {
+                'error': 'Las contraseñas no Coinciden'
+                })
+
+
 def iniciarSesion(request):
     if request.method == 'GET':
         return render(request, 'login.html')
@@ -69,7 +94,6 @@ def registrarMedico(request):
         )
         return redirect('formulario')
     except Exception as error:
-        print("El error fue", error)
         return redirect('formulario')
 
 @login_required(login_url='/')    
@@ -91,7 +115,6 @@ def registrarPaciente(request):
         )
         return redirect('formulario')
     except Exception as error:
-        print("El error fue", error)
         return redirect('formulario')
 
 @login_required(login_url='/')
@@ -115,7 +138,6 @@ def registrarCita(request):
         )
         return redirect('citas', dpi=pacientito)
     except Exception as error:
-        print("El error fue", error)
         return redirect('citas', dpi=pacientito)
     
 def enviarMensaje(request):
@@ -134,7 +156,6 @@ def enviarMensaje(request):
         )
         return redirect('contacto')
     except Exception as error:
-        print("El error fue", error)
         return redirect('contacto')
 
 @login_required(login_url='/')
