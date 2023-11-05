@@ -6,28 +6,27 @@ from .models import medicos, paciente, cita, mensaje
 
 # Create your views here.
 def registroSecreto(request):
-    if request.method == 'GET':
-        return redirect('registroSecreto')
-    else:
-        if request.POST['password'] == request.POST['password2']:
-            try:
-                user = User.objects.create_user(
-                    username = request.POST['username'],
-                    password = request.POST['password']
-                )
-                user.save()
-                return render(request, 'registroSecreto', {
-                    'error': 'Usuario Creado'
-                    })
-            except:
-                return render(request, 'registroSecreto', {
-                    'error': 'El Usuario Ya Existe'
-                    })
-
-        else:
+    return redirect('registroSecreto')
+        
+def registroSuperSecreto(request):
+    if request.POST['password'] == request.POST['password2']:
+        try:
+            user = User.objects.create_user(
+                username = request.POST['username'],
+                password = request.POST['password']
+            )
+            user.save()
             return render(request, 'registroSecreto', {
-                'error': 'Las contraseñas no Coinciden'
+                'error': 'Usuario Creado'
                 })
+        except:
+            return render(request, 'registroSecreto', {
+                'error': 'El Usuario Ya Existe'
+                })
+    else:
+        return render(request, 'registroSecreto', {
+            'error': 'Las contraseñas no Coinciden'
+            })
 
 
 def iniciarSesion(request):
