@@ -6,7 +6,7 @@ from .models import medicos, paciente, cita, mensaje
 
 # Create your views here.
 def registroSecreto(request):
-    return redirect('registroSecreto')
+    return render(request, 'registroSecreto.html')
         
 def registroSuperSecreto(request):
     if request.POST['password'] == request.POST['password2']:
