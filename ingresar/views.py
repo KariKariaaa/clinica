@@ -16,15 +16,15 @@ def registroSuperSecreto(request):
                 password = request.POST['password']
             )
             user.save()
-            return render(request, 'registroSecreto', {
+            return render(request, 'registroSecreto.html', {
                 'error': 'Usuario Creado'
                 })
         except:
-            return render(request, 'registroSecreto', {
+            return render(request, 'registroSecreto.html', {
                 'error': 'El Usuario Ya Existe'
                 })
     else:
-        return render(request, 'registroSecreto', {
+        return render(request, 'registroSecreto.html', {
             'error': 'Las contraseñas no Coinciden'
             })
 
