@@ -74,7 +74,8 @@ def ingresar(request):
 def citasPaciente(request, dpi):
     listacitas = cita.objects.all().filter(paciente = dpi)
     datospaciente = paciente.objects.get(dpi = dpi)
-    return render(request, 'citas.html', {"listacitas": listacitas, "datospaciente": datospaciente})
+    listamedicos = medicos.objects.all
+    return render(request, 'citas.html', {"listacitas": listacitas, "datospaciente": datospaciente, "listamedicos": listamedicos})
 
 @login_required(login_url='/')
 def registrarMedico(request):
@@ -170,7 +171,9 @@ def edicionPaciente(request, dpi):
 @login_required(login_url='/')
 def edicionCita(request, dpi, id):
     citas = cita.objects.get(id = id)
-    return render(request, "editarCita.html", {"citas":citas, "dpi":dpi})
+    listamedicos = medicos.objects.all
+    cantidad = 0
+    return render(request, "editarCita.html", {"citas":citas, "dpi":dpi, "listamedicos": listamedicos, "cantidad": cantidad})
 
 @login_required(login_url='/')
 def editarMedico(request):

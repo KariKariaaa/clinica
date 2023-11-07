@@ -24,7 +24,11 @@
                         <div class="col-sm-6">
                             <div class="mb-3">
                                 <label for="medico_cita" class="form-label text-uppercase lead">Médico Tratante:</label>
-                                <input type="text" class="form-control" id="medico_cita" placeholder="Ingrese el No. de Colegiado"  name="medico_cita" pattern="[0-9]{9}" value="{{citas.medico.colegiado}}" required>
+                                <select class="form-control" id="medico_cita" name="medico_cita" required>
+                                    {% for c in listamedicos %}
+                                    <option>{{c.colegiado}}</option>
+                                    {% endfor %}
+                                  </select>
                             </div>
                         </div>
                         <div class="col-sm-6">
